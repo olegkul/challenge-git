@@ -2,31 +2,45 @@
 
 ---
 
-# Outlier Engineering Git Challenge
+# Step for fixing challenge
 
-At Outlier, you will be expected to be able to contribute features and fixes without causing conflicts and other version control headaches. An important tool for keeping codebases clean is `git rebase`. This challenge will test your understanding of a basic codebase and your ability to use `git rebase` properly.
+$ git clone https://github.com/outlier-org/challenge-git.git
 
-## The Challenge
+$ git checkout --track origin/feature/base64
 
-There are two pull requests open on this repo. Each change is in its own branch. The challenge is to use `git rebase` to add both changes to `master`. When you are finished, your `master` branch should have three commits in the following order:
+$ git checkout --track origin/feature/useragent
 
-```
-* feat: add base64 endpoint
-* feat: add user-agent endpoint
-* init
-```
+$ git checkout feature/base64
 
-_ Any errors, missing features, missing tests, or failing tests will disqualify the solution. _
+$ git rebase feature/useragent
 
-## Instructions
+fix conflicts on project
 
-How to attempt this challenge:
+$ git rebase --continue
 
-1) Create a new repo in your account and note the git url
-2) Clone this repo
-3) Solve the challenge
-4) Set your new repo as the origin: `git remote set-url origin ${your repo url}`
-5) Push your solution to your repo
+$ git checkout master
 
-You must follow these steps for your solution to be accepted -- forks or other methods will not be considered.
+$ git merge feature/useragent
+
+$ git merge feature/base64
+
+$ git log
+commit 96360171a317c678c9ee00162b98ab46d0ee5a8b (HEAD -> master, feature/base64)
+Author: David <david@outlier.org>
+Date:   Fri Jun 14 12:26:08 2019 -0700
+
+    feat: add base64 endpoint
+
+commit 33e41571c2ceeb0e61b456a7678753a57fc6dd91 (origin/feature/useragent, feature/useragent)
+Author: David <david@outlier.org>
+Date:   Fri Jun 14 13:26:16 2019 -0700
+
+    feat: add user-agent endpoint
+
+commit 7f2f4661c7cf351317ecedb0f9da22979a61637b (origin/master, origin/HEAD)
+Author: David <david@outlier.org>
+Date:   Fri Jun 14 12:26:08 2019 -0700
+
+
+
 
